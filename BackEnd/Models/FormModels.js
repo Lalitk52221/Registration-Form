@@ -49,9 +49,9 @@ const formSchema = new mongoose.Schema({
     minlength: [3, "must have a 3 character length"],
   },
   dob: { type: Date },
-  phone: { type: String, required: [true, "provide Phone Number"] },
+  phone: { type: String },
   altPhone: { type: String },
-  gender: { type: String, required: [true, "provide gender"] },
+  gender: { type: String },
   education: { type: String },
   email: {
     type: String,

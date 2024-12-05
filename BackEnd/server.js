@@ -9,7 +9,7 @@ mongoose
     console.log("DB Connected");
   })
   .catch((err) => {
-    console.log(err);
+    console.log("DB Connetion Error:", err);
   });
 
 PORT_NO = process.env.PORT || 4000;
