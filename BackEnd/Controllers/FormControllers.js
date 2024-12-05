@@ -34,9 +34,8 @@ exports.createData = async (req,res)=>{
         })
     }catch(err){
         res.status(400).json({
-            status:"failed",
-            // msg:err,    
-          msg:"data not created"
+            status:"failed",  
+          msg:err.message
         })
     }
 };
