@@ -3,8 +3,11 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
 const app = require("./index.js");
 // console.log(process.env.NODE_ENV);
-mongoose
-  .connect(process.env.DB_URL)
+mongoose.connect(process.env.DB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+})
   .then(() => {
     console.log("DB Connected");
   })
