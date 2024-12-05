@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const AllData = () => {
-  const Data_URL = "http://localhost:4000/form";
+  const Data_URL = "https://registration-form-backend-4zch.onrender.com/form";
   const [fetchData, setFetchData] = useState([]);
 
   const fetchFormData = async () => {
