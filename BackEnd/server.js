@@ -14,6 +14,6 @@ mongoose
 
 PORT_NO = process.env.PORT || 4000;
 
-app.listen(PORT_NO, "127.0.0.1", () => {
+app.listen(PORT_NO, "0.0.0.0", () => {
   console.log("Server has started on Port number ", PORT_NO);
 });
