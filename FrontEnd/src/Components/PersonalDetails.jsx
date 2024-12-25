@@ -232,7 +232,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router";
 
 const PersonalDetails = () => {
-  const POST_Data_URL = "http://localhost:4000/form";
+  const POST_Data_URL = "https://registration-form-07ol.onrender.com/form";
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
