@@ -6,8 +6,8 @@ const app = require("./index.js");
 mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
-  socketTimeoutMS: 45000, // Close sockets after 45 seconds
+  // serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+  // socketTimeoutMS: 45000, // Close sockets after 45 seconds
 })
   .then(() => {
     console.log("DB Connected");

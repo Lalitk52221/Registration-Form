@@ -55,7 +55,7 @@ const formSchema = new mongoose.Schema({
   education: { type: String },
   email: {
     type: String,
-    required: [true, "provide Email address"],
+    // required: [true, "provide Email address"],
     lowercase: true,
     validate: [validator.isEmail, "Enter Correct Email"],
   },
@@ -69,7 +69,9 @@ const formSchema = new mongoose.Schema({
   aadharNumber: { type: String },
   address: { type: String },
   state: { type: String },
-  // photo: { type: File,  },
+  // photo: { type: String, 
+  //   // required:[true,"please provide a photo"]  
+  // }
 });
 
 const Form = mongoose.model("Form", formSchema);

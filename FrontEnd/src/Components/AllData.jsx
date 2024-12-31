@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import format from "date-fns/format";
 
 const AllData = () => {
   const Data_URL = "https://registration-form-07ol.onrender.com/form";
   // const Data_URL = "http://localhost:4000/form";
 
   const [fetchData, setFetchData] = useState([]);
+  
 
   const fetchFormData = async () => {
     try {
@@ -38,7 +40,7 @@ const AllData = () => {
             <tr className="bg-gray-200 text-sm text-black">
               <th className="border border-gray-400 px-2 py-1">S.No</th>
               <th className="border border-gray-400 px-2 py-1">Name</th>
-              <th className="border border-gray-400 px-2 py-1">DOB</th>
+              <th className="border border-gray-400 px-2 py-1 ">DOB</th>
               <th className="border border-gray-400 px-2 py-1">Phone</th>
               <th className="border border-gray-400 px-2 py-1">Alt Phone</th>
               <th className="border border-gray-400 px-2 py-1">Gender</th>
@@ -51,6 +53,7 @@ const AllData = () => {
               <th className="border border-gray-400 px-2 py-1">Aadhar</th>
               <th className="border border-gray-400 px-2 py-1">Address</th>
               <th className="border border-gray-400 px-2 py-1">State</th>
+              {/* <th className="border border-gray-400 px-2 py-1">Photo</th> */}
             </tr>
           </thead>
           <tbody>
@@ -58,7 +61,7 @@ const AllData = () => {
               <tr key={data._id} className="text-sm text-center">
                 <td className="border border-gray-400 px-2 py-1">{index+1}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.name}</td>
-                <td className="border border-gray-400 px-2 py-1">{data.dob}</td>
+                <td className="border border-gray-400 px-2 py-1 whitespace-nowrap">{format(data.dob,"dd MMM yyyy")}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.phone}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.altPhone || "N/A"}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.gender}</td>
@@ -71,6 +74,9 @@ const AllData = () => {
                 <td className="border border-gray-400 px-2 py-1">{data.aadharNumber}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.address}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.state}</td>
+                {/* <td className="border border-gray-400 px-2 py-1"> */}
+                  {/* <img src={data.photo} alt="user photo" className="w-16 h-16 object-cover" /> */}
+                {/* </td> */}
               </tr>
             ))}
           </tbody>

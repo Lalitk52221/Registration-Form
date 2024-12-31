@@ -228,11 +228,17 @@
 // };
 
 // export default PersonalDetails;
-import React, { useState } from "react";
+
+
+
+
+
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 const PersonalDetails = () => {
   const POST_Data_URL = "https://registration-form-07ol.onrender.com/form";
+  // const POST_Data_URL = "http://localhost:4000/form";
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -293,7 +299,7 @@ const PersonalDetails = () => {
       <p className="text-xl font-semibold mt-5 underline text-gray-400">
         Personal Details
       </p>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex text-xl flex-wrap items-center justify-start">
           {/** Map through input fields dynamically */}
           {[
