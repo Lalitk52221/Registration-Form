@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import format from "date-fns/format";
+import axios from "axios";
 
 const AllData = () => {
   const Data_URL = "https://registration-form-07ol.onrender.com/form";
@@ -8,23 +9,33 @@ const AllData = () => {
   const [fetchData, setFetchData] = useState([]);
   
 
-  const fetchFormData = async () => {
-    try {
-      const response = await fetch(Data_URL, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await response.json();
+  // const fetchFormData = async () => {
+  //   try {
+  //     const response = await fetch(Data_URL, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  //     if (!response.ok) {
+  //       throw new Error("Failed to fetch data");
+  //     }
+  //     const data = await response.json();
+  //     setFetchData(data.data.data);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  const fetchFormData=async ()=>{
+    try{
+      const {data} = await axios.get(Data_URL);
+      console.log(data)
       setFetchData(data.data.data);
-    } catch (err) {
-      console.log(err);
+    }catch(err){
+      console.log("error is ", err)
     }
-  };
+  }
 
   useEffect(() => {
     fetchFormData();
@@ -74,9 +85,9 @@ const AllData = () => {
                 <td className="border border-gray-400 px-2 py-1">{data.aadharNumber}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.address}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.state}</td>
-                {/* <td className="border border-gray-400 px-2 py-1"> */}
-                  {/* <img src={data.photo} alt="user photo" className="w-16 h-16 object-cover" /> */}
-                {/* </td> */}
+                <td className="border border-gray-400 px-2 py-1">
+                  <img src={data.photo} alt="user photo" className="w-16 h-16 object-cover" />
+                </td>
               </tr>
             ))}
           </tbody>

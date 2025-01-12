@@ -22,33 +22,33 @@ exports.getData = async (req, res) => {
   }
 };
 
-exports.createData = async (req,res)=>{
-    try{
+exports.createData = async (req, res) => {
+  try {
+    const { name, email, photo } = req.body;
 
-      const {name,email} = req.body;
-      if(!name || !email){
-        return res.status(400).json({
-          status:"failed",
-          msg:"Name and email are required",
-        })
-      }
-
-      // const photo = req.file;
-      // if(!photo){
-      //   return res.status(400).json({
-      //     status:"failed",
-      //     msg:"please provide a photo",
-      //   })
-      // }
-        const newData = await FormData.create(req.body);
-        res.status(200).json({
-            status:"Done",
-            data:newData
-        })
-    }catch(err){
-        res.status(400).json({
-            status:"failed",  
-          msg:err.message
-        })
+    if (!name || !email) {
+      return res.status(400).json({
+        status: "failed",
+        msg: "Name and email are required",
+      });
     }
+
+    
+    if(!photo){
+      return res.status(400).json({
+        status:"failed",
+        msg:"please provide a photo",
+      })
+    }
+    const newData = await FormData.create(req.body);
+    res.status(200).json({
+      status: "Done",
+      data: newData,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "failed",
+      msg: err.message,
+    });
+  }
 };

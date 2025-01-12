@@ -69,9 +69,7 @@ const formSchema = new mongoose.Schema({
   aadharNumber: { type: String },
   address: { type: String },
   state: { type: String },
-  // photo: { type: String, 
-  //   // required:[true,"please provide a photo"]  
-  // }
+  photo: { type: String}
 });
 
 const Form = mongoose.model("Form", formSchema);
