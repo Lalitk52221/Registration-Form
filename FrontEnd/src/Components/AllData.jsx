@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import axios from "axios";
+import ExportToExcel from "./ExportToExcel";
 
 const AllData = () => {
   const Data_URL = "https://registration-form-07ol.onrender.com/form";
@@ -45,6 +46,7 @@ const AllData = () => {
     <div className="container mx-auto p-4">
       <h2 className="text-xl font-semibold my-4 text-center">All Data</h2>
       {/* Responsive Table */}
+        <ExportToExcel/>
       <div className="overflow-x-auto">
         <table className="table-auto border-collapse border border-gray-400 w-full">
           <thead>
@@ -64,7 +66,7 @@ const AllData = () => {
               <th className="border border-gray-400 px-2 py-1">Aadhar</th>
               <th className="border border-gray-400 px-2 py-1">Address</th>
               <th className="border border-gray-400 px-2 py-1">State</th>
-              {/* <th className="border border-gray-400 px-2 py-1">Photo</th> */}
+              <th className="border border-gray-400 px-2 py-1">Photo</th>
             </tr>
           </thead>
           <tbody>

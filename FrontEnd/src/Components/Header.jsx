@@ -4,7 +4,7 @@ import { NavLink } from 'react-router';
 const Header = () => {
   return (
     <header className="bg-blue-950 text-white shadow-md">
-      <div className="container mx-auto flex items-center justify-around px-4 py-2">
+      <div className="mx-auto flex items-center justify-around px-4 py-2">
         {/* Logo */}
         <div className="text-xl font-bold">
           <NavLink to={"/"} className="hover:text-blue-400">
@@ -14,6 +14,13 @@ const Header = () => {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-6">
+          <NavLink
+            to={"/"}
+            className="hover:text-blue-400 transition duration-300"
+          >
+          <p className='text-xl'>  Home</p>
+          </NavLink>
+        
           <NavLink
             to={"/all-data"}
             className="hover:text-blue-400 transition duration-300"

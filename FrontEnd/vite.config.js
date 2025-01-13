@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist',  // Ensure this matches your expected output
-  }
+  },
+  optimizeDeps: {
+    include: ["swiper"],
+  },
 })

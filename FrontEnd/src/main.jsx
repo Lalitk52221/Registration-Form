@@ -5,14 +5,14 @@ import App from "./App.jsx";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import RegistrationForm from "./Components/RegitrationForm.jsx";
 import AllData from "./Components/AllData.jsx";
-import Home from "./Home.jsx";
+import Home from "./Components/Home.jsx";
 const createRoute = createHashRouter([{
   path: "/",
   element: <App />,
   children: [
     {
       path:"/",
-      element: <Home />,
+      element: <Home/>,
     },
     {
       path: "/registration-form",

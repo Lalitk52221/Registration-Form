@@ -82,7 +82,7 @@ const PersonalDetails = () => {
             <span className="">Name:</span>
             <input
               type="text"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -93,7 +93,7 @@ const PersonalDetails = () => {
             <span className="">DOB:</span>
             <input
               type="date"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={dob}
               onChange={(e) => setDOB(e.target.value)}
               required
@@ -105,9 +105,11 @@ const PersonalDetails = () => {
             <input
               type="tel"
               maxLength={10}
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              minLength={10}
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
+              required
             />
           </div>
           <div className="flex gap-2  m-3 flex-col">
@@ -115,7 +117,8 @@ const PersonalDetails = () => {
             <input
               type="tel"
               maxLength={10}
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              minLength={10}
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={altPhone}
               onChange={(e) => setAltPhone(e.target.value)}
               // required
@@ -124,7 +127,7 @@ const PersonalDetails = () => {
           <div className="flex gap-2  m-3 flex-col">
             <span className="">Gender:</span>
             <select
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
               required
@@ -139,7 +142,7 @@ const PersonalDetails = () => {
             <span className="">Email id:</span>
             <input
               type="email"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -149,17 +152,17 @@ const PersonalDetails = () => {
             <span className="">Education:</span>
             <input
               type="text"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={education}
               onChange={(e) => setEducation(e.target.value)}
-              // required
+              required
             />
           </div>
           <div className="flex gap-2 m-3 flex-col">
             <span className="">Father Name:</span>
             <input
               type="text"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={father}
               onChange={(e) => setFather(e.target.value)}
               required
@@ -169,17 +172,17 @@ const PersonalDetails = () => {
             <span className="">Father Occupation:</span>
             <input
               type="text"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={fatherOccupation}
               onChange={(e) => setFatherOccupation(e.target.value)}
-              // required
+              required
             />
           </div>
           <div className="flex gap-2 m-3 flex-col">
             <span className="">Mother Name:</span>
             <input
               type="text"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={mother}
               onChange={(e) => setMother(e.target.value)}
               // required
@@ -189,18 +192,19 @@ const PersonalDetails = () => {
             <span className="">Mother Occupation:</span>
             <input
               type="text"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={motherOccupation}
               onChange={(e) => setMotherOccupation(e.target.value)}
-              // required
+              required
             />
           </div>
           <div className="flex gap-2 m-3 flex-col">
             <span className="">Aadhar Number:</span>
             <input
               type="number"
-              maxLength={16}
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              maxLength={12}
+              minLength={12}
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={aadharNumber}
               onChange={(e) => setAadhar(e.target.value)}
               required
@@ -210,20 +214,20 @@ const PersonalDetails = () => {
             <span className="">Address:</span>
             <input
               type="text"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              // required
+              required
             />
           </div>
 
           <div className="flex gap-2  m-3 flex-col">
             <span className="">State:</span>
             <select
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               value={state}
               onChange={(e) => setState(e.target.value)}
-              // required
+              required
             >
               <option value="select">select</option>
               <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -260,9 +264,10 @@ const PersonalDetails = () => {
             <span className="">Photo:</span>
             <input
               type="file"
-              className="border rounded-md px-3 py-1 text-lg w-64"
+              className="border rounded-md px-3 py-1 text-lg w-72"
               accept="image/*"
               onChange={handleFileChange}
+              required
             />
           </div>
         </div>
@@ -429,7 +434,7 @@ export default PersonalDetails;
 //               <span>{field.label}:</span>
 //               {field.type === "select" ? (
 //                 <select
-//                   className="border rounded-md px-3 py-1 text-lg w-64"
+//                   className="border rounded-md px-3 py-1 text-lg w-72"
 //                   name={field.name}
 //                   value={formData[field.name] || ""}
 //                   onChange={handleChange}
@@ -445,7 +450,7 @@ export default PersonalDetails;
 //               ) : (
 //                 <input
 //                   type={field.type}
-//                   className="border rounded-md px-3 py-1 text-lg w-64"
+//                   className="border rounded-md px-3 py-1 text-lg w-72"
 //                   name={field.name}
 //                   value={
 //                     field.type === "file"
