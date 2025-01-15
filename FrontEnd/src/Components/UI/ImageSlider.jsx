@@ -8,6 +8,9 @@ const ImageSlider = () => {
     {src:"./images/slider/4.JPG", alt:"Image 4"},
     {src:"./images/slider/5.JPG", alt:"Image 5"},
     {src:"./images/slider/6.JPG", alt:"Image 6"},
+    {src:"./images/slider/7.JPG", alt:"Image 7"},
+    {src:"./images/slider/8.JPG", alt:"Image 8"},
+    {src:"./images/slider/9.JPG", alt:"Image 9"},
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,7 +37,8 @@ const ImageSlider = () => {
             key={index}
             src={image.src}
             alt={image.alt}
-            className="w-full h-full object-cover"
+            loading="lazy"
+            className="w-full h-full object-cover "
           />
         ))}
       </div>
