@@ -3,33 +3,33 @@ import { NavLink } from 'react-router';
 
 const Header = () => {
   return (
-    <header className="bg-blue-950 text-white shadow-md">
-      <div className="mx-auto flex items-center justify-around px-4 py-2">
+    <header className=" bg-gradient-to-r from-white/20 via-purple-500 to-white/20 text-white shadow-md w-full">
+      <div className=" flex items-center justify-around px-4 py-2 font-semibold ">
         {/* Logo */}
         <div className="text-xl font-bold">
-          <NavLink to={"/"} className="hover:text-blue-400">
-            <img src="./logo.png" alt="logo"  className='w-32'/>
+          <NavLink to={"/"}>
+            <img src="./images/logo.png" alt="logo"  className='w-32 brightness-150 drop-shadow-lg'/>
           </NavLink>
         </div>
-
+        
         {/* Navigation Links */}
-        <nav className="hidden md:flex space-x-6">
+        <nav className="hidden md:flex space-x-6 ">
           <NavLink
             to={"/"}
-            className="hover:text-blue-400 transition duration-300"
+            className="nav-item"
           >
-          <p className='text-xl'>  Home</p>
+          <p className='text-xl '>  Home</p>
           </NavLink>
         
           <NavLink
             to={"/all-data"}
-            className="hover:text-blue-400 transition duration-300"
+            className="nav-item"
           >
           <p className='text-xl'>  All Data</p>
           </NavLink>
           <NavLink
             to={"/registration-form"}
-            className="hover:text-red-400 transition duration-300"
+            className="nav-item"
           >
             <p className='text-xl'>  Registration Form</p>
           </NavLink>
@@ -65,6 +65,12 @@ const Header = () => {
 
       {/* Mobile Menu Links */}
       <div id="mobile-menu" className="md:hidden hidden bg-blue-700 text-white">
+        <NavLink
+          to={"/"}
+          className="block px-4 py-2 hover:bg-blue-800 transition duration-300"
+        >
+          Home
+        </NavLink>
         <NavLink
           to={"/all-data"}
           className="block px-4 py-2 hover:bg-blue-800 transition duration-300"

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,6 +17,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
 }
 
 
@@ -24,15 +27,22 @@ body {
   /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
+  /* width: 100vw; */
   font-family: "Poppins", sans-serif;
 }
 
  /* Common Styles */
 .container{
-  @apply w-full p-10 
+  @apply p-6
 }
 h1{
   @apply text-5xl font-bold 
+}
+.nav-item{
+  @apply hover:text-white hover:bg-blue-600 p-2 rounded-md transition duration-300
+}
+.arrow{
+  @apply absolute top-1/2 -translate-y-1/2 w-4 h-6 text-xs lg:text-lg lg:w-7 lg:h-10 bg-white rounded-lg shadow-sm flex items-center justify-center text-black cursor-pointer
 }
 
 button {
