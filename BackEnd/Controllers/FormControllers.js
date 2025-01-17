@@ -167,10 +167,10 @@ exports.createData = async (req, res) => {
   //   }
   // };
   
-  const xl = require("excel4node");
-const axios = require("axios");
+  // const xl = require("excel4node");
+// const axios = require("axios");
 
-exports.exportData = async (req, res) => {
+exports.export = async (req, res) => {
   try {
     // Fetch data from the database
     const students = await FormData.find().lean();

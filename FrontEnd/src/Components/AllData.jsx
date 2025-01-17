@@ -47,7 +47,7 @@ const AllData = () => {
       <h2 className="text-xl font-semibold my-4 text-center">All Data</h2>
       {/* Responsive Table */}
         <ExportToExcel/>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-4">
         <table className="table-auto border-collapse border border-gray-400 w-full">
           <thead>
             <tr className="bg-gray-200 text-sm text-black">
