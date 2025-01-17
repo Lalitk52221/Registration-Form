@@ -1,17 +1,5 @@
-
 import { useEffect, useState } from "react";
-const ImageSlider = () => {
-  const images = [
-    { src: "./images/slider/1.JPG", alt: "Image 1" },
-    { src: "./images/slider/2.JPG", alt: "Image 2" },
-    { src: "./images/slider/3.JPG", alt: "Image 3" },
-    {src:"./images/slider/4.JPG", alt:"Image 4"},
-    {src:"./images/slider/5.JPG", alt:"Image 5"},
-    {src:"./images/slider/6.JPG", alt:"Image 6"},
-    {src:"./images/slider/7.JPG", alt:"Image 7"},
-    {src:"./images/slider/8.JPG", alt:"Image 8"},
-    {src:"./images/slider/9.JPG", alt:"Image 9"},
-  ];
+const ImageSlider = ({images}) => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -38,7 +26,7 @@ const ImageSlider = () => {
             src={image.src}
             alt={image.alt}
             loading="lazy"
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover"
           />
         ))}
       </div>
@@ -48,11 +36,11 @@ const ImageSlider = () => {
         {images.map((_, index) => (
           <div
             key={index}
-            onClick={()=>handleClick(index)}
-            className={`w-2 h-2 lg:w-3 lg:h-3 cursor-pointer rounded-full shadow-sm transition-transform duration-500 ease-in-out  ${
+            onClick={() => handleClick(index)}
+            className={` cursor-pointer rounded-full shadow-lg border-zinc-50 border transition-transform duration-500 ease-in-out  ${
               currentSlide === index
-                ? "bg-gray-700 animate-trail"
-                : "bg-gray-200"
+                ? "bg-gray-200 w-2 h-2 lg:w-6 animate-trail"
+                : "bg-gray-500 w-1 h-1 lg:w-2 lg:h-2"
             }`}
             // style={}
           ></div>
@@ -64,15 +52,21 @@ const ImageSlider = () => {
       <div
         className="arrow left-4 "
         onClick={() =>
-          setCurrentSlide((prevSlide)=>prevSlide === 0 ? images.length - 1 : prevSlide - 1
-  )}
+          setCurrentSlide((prevSlide) =>
+            prevSlide === 0 ? images.length - 1 : prevSlide - 1
+          )
+        }
       >
         &#9664;
       </div>
-    <div className="arrow right-4" onClick={()=> setCurrentSlide((prevSlide)=>(prevSlide+1)%images.length)}>
-      &#9654;
-    </div>
-
+      <div
+        className="arrow right-4"
+        onClick={() =>
+          setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length)
+        }
+      >
+        &#9654;
+      </div>
     </div>
   );
 };

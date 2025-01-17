@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 
 const Header = () => {
   return (
-    <header className=" bg-gradient-to-r from-white/20 via-purple-500 to-white/20 text-white shadow-md w-full">
+    <header className="fixed z-10 bg-gradient-to-r from-blue-900 via-purple-500 to-pink-500 text-white shadow-md w-full">
       <div className=" flex items-center justify-around px-4 py-2 font-semibold ">
         {/* Logo */}
         <div className="text-xl font-bold">
