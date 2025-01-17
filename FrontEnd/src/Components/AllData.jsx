@@ -54,7 +54,7 @@ const AllData = () => {
             <tr className="bg-gray-200 text-sm text-black">
               <th className="border border-gray-400 px-2 py-1">S.No</th>
               <th className="border border-gray-400 px-2 py-1">Name</th>
-              <th className="border border-gray-400 px-2 py-1 ">DOB</th>
+              <th className="border border-gray-400 px-2 py-1">DOB</th>
               <th className="border border-gray-400 px-2 py-1">Phone</th>
               <th className="border border-gray-400 px-2 py-1">Alt Phone</th>
               <th className="border border-gray-400 px-2 py-1">Gender</th>
