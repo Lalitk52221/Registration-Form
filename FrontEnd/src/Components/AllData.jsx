@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import format from "date-fns/format";
 import axios from "axios";
 import ExportToExcel from "./ExportToExcel";
+import { SceletonAllData } from "./UI/Sceleton";
 
 const AllData = () => {
   const Data_URL = "https://registration-form-07ol.onrender.com/form";
@@ -70,7 +71,7 @@ const AllData = () => {
             </tr>
           </thead>
           <tbody>
-            {fetchData.map((data,index) => (
+            {fetchData? fetchData.map((data,index) => (
               <tr key={data._id} className="text-sm text-center">
                 <td className="border border-gray-400 px-2 py-1">{index+1}</td>
                 <td className="border border-gray-400 px-2 py-1">{data.name}</td>
@@ -91,9 +92,13 @@ const AllData = () => {
                   <img src={data.photo} alt="user photo" className="w-16 h-16 object-cover" />
                 </td>
               </tr>
-            ))}
+            )):
+            <SceletonAllData/>
+            }
+            
           </tbody>
         </table>
+        <SceletonAllData/>
       </div>
     </div>
   );
