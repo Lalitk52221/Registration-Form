@@ -1,8 +1,41 @@
-const FormData = require("../Models/FormModels");
+// const FormData = require("../Models/FormModels");
+const { FormData, SignUpForm } = require("../Models/FormModels");
 const xl = require("excel4node");
 const fs = require("fs");
 const axios = require("axios");
 const path = require("path");
+
+
+exports.getUserData = async (req, res) => {
+  try {
+    const data = await SignUpForm.find();
+    if (!data) {
+      return res.status(404).json({ message: "No user found" });
+    }
+    res.status(200).json({
+      status: "Success",
+      result:data.length,
+      data: data,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+exports.createUserData = async (req, res) => {
+  try {
+    console.log("Request Body:", req.body);
+    const data = await SignUpForm.create(req.body);
+    res.status(201).json({
+      status: "Success",
+      data: data,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ message: "Failed to create user", error: error.message });
+  }
+};
 
 exports.getData = async (req, res) => {
   try {

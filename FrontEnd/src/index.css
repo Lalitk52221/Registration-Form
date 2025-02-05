@@ -44,7 +44,14 @@ h1{
 .arrow{
   @apply absolute top-1/2 -translate-y-1/2 w-4 h-6 text-xs lg:text-lg lg:w-7 lg:h-10 bg-white rounded-lg shadow-sm flex items-center justify-center text-black cursor-pointer
 }
-
+input,
+select {
+  @apply bg-transparent text-gray-700
+}
+option {
+  @apply bg-black text-white 
+}
+ 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -63,15 +70,8 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-input,
-select {
-  background: transparent;
-}
-option {
-  background: #0a011a;
-  color: white;
-  border-bottom: 1px solid white;
-}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -83,4 +83,4 @@ option {
   button {
     background-color: #f9f9f9;
   }
-}
+} 
