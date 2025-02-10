@@ -9,10 +9,16 @@ import Home from "./Components/Pages/Home.jsx";
 import SignupPage from "./Components/Pages/SignupPage.jsx";
 import LoginPage from "./Components/Pages/LoginPage.jsx";
 import ProtectedRoute from "./Components/UI/ProtectedRoute.jsx";
+import { Provider } from "react-redux";
+import store from "./Components/Redux/store.js";
 const createRoute = createHashRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <Provider store={store}>
+        <App />
+      </Provider>
+    ),
     children: [
       {
         path: "/",
@@ -26,7 +32,6 @@ const createRoute = createHashRouter([
         path: "/all-data",
         element: (
           <ProtectedRoute>
-            {" "}
             <AllData />
           </ProtectedRoute>
         ),

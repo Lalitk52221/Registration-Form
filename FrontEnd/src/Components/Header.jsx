@@ -1,13 +1,15 @@
-import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router";
+import { logout } from "./Redux/authSlice";
 
 const Header = () => {
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
   const navigate = useNavigate();
-  console.log(token);
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    dispatch(logout());
     navigate("/");
   };
 
@@ -20,17 +22,17 @@ const Header = () => {
             <img
               src="./images/logo.png"
               alt="logo"
-              className="w-32 brightness-150 drop-shadow-lg"
+              className="md:w-32 w-24 brightness-150 drop-shadow-lg"
             />
           </NavLink>
         </div>
 
         {/* Navigation Links */}
-        <nav className="hidden md:flex space-x-6 ">
+        <nav className="hidden md:flex lg:space-x-6 md-space-x-3 justify-center items-center">
           <NavLink to={"/"} className="nav-item">
             <p className="text-xl "> Home</p>
           </NavLink>
-          {token && (
+          {isAuthenticated && (
             <NavLink to={"/all-data"} className="nav-item">
               <p className="text-xl"> All Data</p>
             </NavLink>
@@ -38,29 +40,36 @@ const Header = () => {
           <NavLink to={"/registration-form"} className="nav-item">
             <p className="text-xl"> Registration Form</p>
           </NavLink>
-        </nav>
-        <div className="text-xl font-bold flex gap-8 items-center cursor-pointer">
+
           <span>
-            {" "}
-            {token ? (
-              <span onClick={handleLogout} className="bg-red-700 py-2 px-4 rounded-lg shadow-sm">Logout</span>
+            {isAuthenticated ? (
+              <span
+                onClick={handleLogout}
+                className="bg-red-700 py-2 px-4 rounded-lg shadow-sm"
+              >
+                {" "}
+                Logout
+              </span>
             ) : (
               <NavLink to={"/login"} className="">
-                <p className="font-semibold bg-blue-700 py-2 px-4 rounded-lg shadow-sm">Login</p>
+                <p className="font-semibold bg-blue-700 py-2 px-4 rounded-lg shadow-sm">
+                  Login
+                </p>
               </NavLink>
             )}{" "}
           </span>
+        </nav>
+        
           <NavLink to={"/"}>
             <img
               src="./images/SMF-logo.png"
               alt="logo"
-              className="w-32 drop-shadow-lg"
+              className="md:w-32 w-24 drop-shadow-lg "
             />
           </NavLink>
-        </div>
 
         {/* Mobile Menu */}
-        <div className="md:hidden">
+        <div className="md:hidden ">
           <button
             className="text-white focus:outline-none"
             aria-label="Toggle Menu"
@@ -95,12 +104,14 @@ const Header = () => {
         >
           Home
         </NavLink>
-        <NavLink
-          to={"/all-data"}
-          className="block px-4 py-2 hover:bg-blue-800 transition duration-300"
-        >
-          All Data
-        </NavLink>
+        {isAuthenticated && (
+          <NavLink
+            to={"/all-data"}
+            className="block px-4 py-2 hover:bg-blue-800 transition duration-300"
+          >
+            All Data
+          </NavLink>
+        )}
         <NavLink
           to={"/registration-form"}
           className="block px-4 py-2 hover:bg-blue-800 transition duration-300"
@@ -111,7 +122,7 @@ const Header = () => {
           to={"/login"}
           className="block px-4 py-2 hover:bg-blue-800 transition duration-300"
         >
-          Login
+          {isAuthenticated ? "Logout" : "Login"}
         </NavLink>
       </div>
     </header>

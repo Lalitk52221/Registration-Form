@@ -6,7 +6,7 @@ const App = () => {
     <main className="w-screen">
       <Header />
       <div className="pt-12">
-      <Outlet />
+        <Outlet />
       </div>
     </main>
   );

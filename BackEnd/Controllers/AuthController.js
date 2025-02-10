@@ -53,7 +53,7 @@ exports.login = async (req, res, next) => {
   console.log(token);
   res.status(200).json({
     status: "OK",
-    token,
-    user,
+    token: token,
+    user: user,
   });
 };
