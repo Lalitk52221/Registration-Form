@@ -6,16 +6,16 @@ import Counter from "../UI/Counter";
 import { useSelector } from "react-redux";
 
 const Home = () => {
-  const user = useSelector((state) => state.auth.user);
+  const { user, isAuthenticated } = useSelector((state) => state.auth);
   return (
     <div className="relative container text-center w-full pt-20 mt-3">
       <h1 className="  text-center text-xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mb-6 mt-4 ">
-        <Typewriter
+        <Typewriter 
           words={[
-            `Welcome ${user.name}! `,
+            `Welcome ${isAuthenticated ? user.name : "to Aakarshan"}! `,
             "Explore Aakarshan Website!",
             "Enroll Now!",
-            `Welcome ${user.name}! `,
+            `Welcome ${isAuthenticated ? user.name : "to Aakarshan"}! `,
           ]}
           loop={5} // Number of times to loop (use `0` for infinite loop)
           cursor
