@@ -9,7 +9,7 @@ const Home = () => {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
   return (
     <div className="relative container text-center w-full pt-20 mt-3">
-      <h1 className="  text-center text-xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mb-6 mt-4 ">
+      <h1 className="  text-center text-xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-pink-500 to-yellow-500 mb-6 mt-4 ">
         <Typewriter 
           words={[
             `Welcome ${isAuthenticated ? user.name : "to Aakarshan"}! `,

@@ -4,13 +4,15 @@ import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../Redux/authSlice";
+import Loader from "../UI/Loader";
 
 const LoginPage = () => {
-  const LOGIN_URL = "http://localhost:4000/form/login";
-  // const LOGIN_URL = "https://registration-form-07ol.onrender.com/form/login";
+  // const LOGIN_URL = "http://localhost:4000/form/login";
+  const LOGIN_URL = "https://registration-form-07ol.onrender.com/form/login";
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -18,6 +20,7 @@ const LoginPage = () => {
     e.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
+    setLoading(true)
     try {
       const response = await axios.post(LOGIN_URL, { email, password });
       if (response.data.token) {
@@ -29,6 +32,7 @@ const LoginPage = () => {
         );
       }
       console.log("token stored", response.data.token);
+      setLoading(false)
       navigate("/"); // Redirect to dashboard or home page
     } catch (err) {
       setError(err.response?.data?.message || "Login failed");
@@ -37,8 +41,10 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-indigo-600 relative overflow-hidden">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 to-indigo-600 relative overflow-hidden">
       {/* Background Animation */}
+     {loading && <Loader/> } 
+     {/* <Loader/> */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-600 opacity-50"
         animate={{

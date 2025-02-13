@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
-  const SIGNUP_URL = "http://localhost:4000/form/signup";
-  // const SIGNUP_URL = "http://localhost:4000/form/api/user/signup";
+  // const SIGNUP_URL = "http://localhost:4000/form/signup";
+  const SIGNUP_URL = "http://localhost:4000/form/api/user/signup";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,10 +13,12 @@ const SignupPage = () => {
   const [role, setRole] = useState("");
   const [dob, setDob] = useState("");
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setLoading(true)
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
@@ -30,6 +32,7 @@ const SignupPage = () => {
         dob,
       });
       alert("Account created successfully!");
+      setLoading(false)
       navigate("/login"); // Redirect to login page
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed");
