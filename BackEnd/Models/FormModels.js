@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 const formSchema = new mongoose.Schema({
   name: {
@@ -8,7 +8,7 @@ const formSchema = new mongoose.Schema({
     required: [true, "please provide Name"],
     trim: true,
     minlength: [3, "must have a 3 character length"],
-  },
+  },  
   dob: { type: Date },
   phone: { type: String },
   altPhone: { type: String },
